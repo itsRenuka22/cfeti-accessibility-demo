@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CFETI Accessibility Demo — Renuka Patwari</title>
+  <meta name="description" content="An accessibility-first demo page showing semantic HTML, keyboard navigation, and form labeling." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Skip link: visible on focus -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <p class="site-kicker">Accessibility-first demo</p>
+      <h1 class="site-title">CFETI Demo Page</h1>
+      <p class="site-subtitle">
+        Semantic HTML, keyboard-friendly navigation, readable contrast, and properly labeled forms.
+      </p>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="#checklist">Checklist</a></li>
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" class="site-main" tabindex="-1">
+    <div class="container">
+
+      <section id="checklist" class="card" aria-labelledby="checklist-title">
+        <h2 id="checklist-title">What this page demonstrates</h2>
+        <ul>
+          <li>Semantic landmarks: header, nav, main, footer</li>
+          <li>Skip link for quick keyboard navigation</li>
+          <li>Visible focus states and logical tab order</li>
+          <li>Proper form labels and helpful error messaging</li>
+          <li>Readable typography and contrast</li>
+          <li>Minimal ARIA (only where helpful)</li>
+        </ul>
+      </section>
+
+      <section id="examples" class="card" aria-labelledby="examples-title">
+        <h2 id="examples-title">Accessibility examples</h2>
+
+        <h3>Descriptive links</h3>
+        <p>
+          Avoid “click here.” Use descriptive text like:
+          <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/" target="_blank" rel="noopener">
+            W3C Introduction to Web Accessibility
+          </a>.
+        </p>
+
+        <h3>Image with alt text</h3>
+        <figure>
+          <svg
+            width="120"
+            height="120"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            role="img"
+            aria-label="Accessibility symbol icon"
+          >
+            <circle cx="12" cy="7" r="1"></circle>
+            <path d="M8 11h8"></path>
+            <path d="M11 15h2"></path>
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Z"></path>
+          </svg>
+          <figcaption>Example image with meaningful alt text.</figcaption>
+        </figure>
+
+        <h3>Simple data table</h3>
+        <div class="table-wrap" role="region" aria-label="Content review tracker table" tabindex="0">
+          <table>
+            <caption>Content Review Tracker</caption>
+            <thead>
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">What to check</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Headings</td>
+                <td>Correct order and consistent styling</td>
+                <td>Not started</td>
+              </tr>
+              <tr>
+                <td>Links</td>
+                <td>Descriptive link text</td>
+                <td>In progress</td>
+              </tr>
+              <tr>
+                <td>Images</td>
+                <td>Alt text for informative images</td>
+                <td>Not started</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="contact" class="card" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact form (label + validation)</h2>
+
+        <p class="hint">
+          This form is a demo to show proper labels, keyboard access, and clear messages.
+        </p>
+
+        <!-- aria-live region for form feedback -->
+        <div id="form-status" class="status" role="status" aria-live="polite"></div>
+
+        <form id="demo-form" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+            <p class="error" id="name-error" hidden>Please enter your name.</p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+            <p class="error" id="email-error" hidden>Please enter a valid email address.</p>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <p class="error" id="message-error" hidden>Please enter a short message.</p>
+          </div>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Built as an accessibility-first demo page for CFETI (semantic HTML, keyboard support, labeled forms).
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

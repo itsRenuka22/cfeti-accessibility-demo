@@ -4,7 +4,7 @@ A production-ready, accessibility-first demo webpage showcasing semantic HTML, k
 
 ## 🎯 Overview
 
-This project demonstrates how to build an inclusive, accessible web experience using semantic HTML, proper ARIA attributes, and keyboard-friendly design patterns. It's a complete reference implementation for developers learning accessibility.
+This project demonstrates how to build an inclusive, accessible web experience using semantic HTML, and keyboard-friendly design patterns. It's a complete reference implementation for developers learning accessibility.
 
 **Live Demo:** [View on GitHub](https://github.com/itsRenuka22/cfeti-accessibility-demo)
 
